@@ -69,6 +69,63 @@ jupyter notebook distributing_data_by_overlapping_polygons.ipynb
 - **Election Districts**: NYC Open Data (ID: h2n3-98hq) - 5,840 districts
 - **Census Tracts 2010**: NYC Open Data (ID: fxpq-c8ku) - 2,165 tracts
 
+## Dataset Versioning & Updates
+
+### Current Project Data (Outdated)
+
+The project currently uses **2010 Census-era data**:
+
+| Dataset | Version | Year | Records |
+|---------|---------|------|---------|
+| Census Tracts | 2010 Decennial Census | 2010 | 2,165 |
+| Election Districts | ~2010 boundaries | 2010 | 5,840 |
+
+### What Changed Since 2010
+
+**Census Tracts (2020 Decennial Census)**:
+- Boundaries redrawn every 10 years based on population changes
+- 2020 Census introduced new tract boundaries
+- New FIPS codes assigned to modified tracts
+
+**Election Districts (Post-2020 Redistricting)**:
+- NYC election districts redrawn after 2020 Census
+- NY lost 1 Congressional seat; courts invalidated initial maps
+- Current boundaries reflect 2020 redistricting
+
+**ACS Data**:
+- 2020-2024 ACS 5-year estimates now available (most recent)
+
+### Updated Data Sources
+
+**Census Tracts (2020)**:
+| Source | URL/ID |
+|--------|--------|
+| NYC Open Data | https://data.cityofnewyork.us/City-Government/2020-Census-Tracts/63ge-mke6 |
+| NYC Open Data (Mapped) | https://data.cityofnewyork.us/City-Government/2020-Census-Tracts-Mapped/weqx-t5xr |
+| NYC DCP | https://www.nyc.gov/content/planning/pages/resources/datasets/census-tracts |
+| US Census TIGER | https://catalog.data.gov/dataset/tiger-line-shapefile-2020-state-new-york-census-tracts |
+
+**Election Districts (Current)**:
+| Source | URL/ID |
+|--------|--------|
+| NYC Open Data | https://data.cityofnewyork.us/City-Government/Election-Districts/h2n3-98hq (same ID, updated data) |
+| ArcGIS Hub | https://hub.arcgis.com/datasets/DCP::nyc-election-districts |
+| NYC DCP | https://www.nyc.gov/content/planning/pages/resources/datasets/election-districts |
+
+**ACS Demographic Data**:
+| Source | URL |
+|--------|-----|
+| Census Bureau API | https://www.census.gov/data/developers/data-sets/acs-5year.html |
+| data.census.gov | https://www.census.gov/acs/www/data/data-tables-and-tools/data-profiles/ |
+| ACS Summary File | https://www.census.gov/programs-surveys/acs/data/summary-file.html |
+
+### Upgrade Recommendations
+
+1. Replace 2010 Census Tracts with 2020 Census Tracts (Dataset ID: `63ge-mke6`)
+2. Use current Election Districts from same endpoint (ID: `h2n3-98hq`) - now reflects 2020 redistricting
+3. Update ACS variables to 2020-2024 5-year estimates
+4. Note: Historical comparisons require Census Bureau tract relationship/crosswalk files
+
 ## Important Notes
 
 - GeoPandas has complex spatial dependencies (GDAL, GEOS, Proj) - use conda-forge for reliable installation
